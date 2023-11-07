@@ -1,1 +1,0 @@
-obj.ten_value = 67
