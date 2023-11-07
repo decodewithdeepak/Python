@@ -41,7 +41,7 @@ print("Image mode:", img.mode)
 # Image manipulation operations
 # 1. Resize: To resize an image, use the resize() method:
 img = Image.open("image.jpg")
-img = img.resize((400, 400)) # 400x400 pixels
+img = img.resize((400, 400)) # (width, height)
 img.save("resized_image.jpg")
 
 # 2. Rotate: To rotate an image, use the rotate() method:
@@ -51,7 +51,7 @@ img.save("rotated_image.jpg")
 
 # 3. Crop: To crop an image, use the crop() method:
 img = Image.open("image.jpg")
-img = img.crop((100, 100, 400, 400))
+img = img.crop((100, 100, 400, 400)) # (left, top, right, bottom)
 img.save("cropped_image.jpg")
 
 # 4. Flip: To flip an image, use the transpose() method:
