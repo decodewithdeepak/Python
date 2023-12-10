@@ -94,3 +94,56 @@ consumer_thread.start()
 
 producer_thread.join()
 consumer_thread.join()
+
+
+# The Readers and Writers Problem
+# The readers-writers problem is a classic example of a multi-process synchronization problem.
+# It involves two types of processes, readers and writers, who share a common resource, the data.
+# The readers only read the data and don't perform any modification.
+# The writers can both read and write data.
+# The problem is to make sure that no writer is writing the data while a reader is reading it.
+# Also, a writer cannot write the data if another writer is already writing it.
+# The solution can be reached by means of inter-process communication, typically using semaphores.
+
+import threading
+import time
+
+shared_data = 0 # Shared data between readers and writers
+readers_count = 0 # Number of readers accessing the shared data
+lock = threading.Lock() # Lock object to synchronize the access of shared data
+readers_count_lock = threading.Lock() # Lock object to synchronize the access of readers_count
+
+def reader():
+    global shared_data
+    while True:
+        with readers_count_lock:
+            readers_count += 1
+            if readers_count == 1:
+                lock.acquire() # If this is the first reader, then it will block the writer
+        print(f"Read: {shared_data}")
+        with readers_count_lock:
+            readers_count -= 1
+            if readers_count == 0:
+                lock.release() # If this is the last reader, then it will unblock the writer
+        time.sleep(1)
+
+def writer():
+    global shared_data
+    while True:
+        with lock:
+            shared_data += 1
+            print(f"Write: {shared_data}")
+        time.sleep(1)
+
+reader_thread1 = threading.Thread(target=reader)
+reader_thread2 = threading.Thread(target=reader)
+writer_thread = threading.Thread(target=writer)
+
+reader_thread1.start()
+reader_thread2.start()
+writer_thread.start()
+
+reader_thread1.join()
+reader_thread2.join()
+writer_thread.join()
+
