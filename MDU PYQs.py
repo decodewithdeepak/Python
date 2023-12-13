@@ -230,3 +230,65 @@ for word in words:
 for word, count in word_count.items():
     print(f"{word}: {count} times")
 
+
+
+# Counting Characters in a String using Dictionary:
+# Input a string
+string = input("Enter a string: ")
+
+# Create a dictionary
+char_count = {}
+
+# Count the characters
+for char in string:
+    char_count[char] = char_count.get(char, 0) + 1
+
+# Display the result
+for char, count in char_count.items():
+    print(f"{char}: {count} times")
+
+
+
+# Generate a dictionary that contains (i:i*i) such that i is a number ranging from 1 to n.
+# Input a number
+n = int(input("Enter a number: "))
+# Create a dictionary
+my_dict = {}
+# Add key-value pairs to the dictionary
+for i in range(1, n + 1):
+    my_dict[i] = i * i
+# Display the dictionary
+print(my_dict)
+
+
+# Program to Find the Sum of All Values in a Dictionary:
+my_dict = {"a": 1, "b": 2, "c": 3, "d": 4}
+# Initialize the sum
+sum = 0
+# Add each value to the sum
+for value in my_dict.values():
+    sum += value
+# Display the sum
+print(f"Sum: {sum}")
+
+
+# Program to check for the presence of a key in the dictionary
+my_dict = {"a": 1, "b": 2, "c": 3, "d": 4}
+# Input a key
+key = input("Enter a key: ")
+# Check if the key is present
+if key in my_dict:
+    print(f"{key} is present in the dictionary.")
+else:
+    print(f"{key} is not present in the dictionary.")
+
+# Program to check for the presence of a value in the dictionary
+my_dict = {"a": 1, "b": 2, "c": 3, "d": 4}
+# Input a value
+value = int(input("Enter a value: "))
+# Check if the value is present
+if value in my_dict.values():
+    print(f"{value} is present in the dictionary.")
+else:
+    print(f"{value} is not present in the dictionary.")
+
