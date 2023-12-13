@@ -1,4 +1,4 @@
-# Multithreading is a process of executing multiple threads simultaneously.
+# Multithreading is a process of executing multiple threads simultaneously in a single process.
 # A thread is a lightweight sub-process, the smallest unit of processing.
 # Each thread runs parallely and independently of each other.
 # Each thread has its own execution stack.
