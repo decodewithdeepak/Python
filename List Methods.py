@@ -1,3 +1,18 @@
+# List Methods:
+# index() - Returns the index of the first element with the specified value
+# append() - Adds an element at the end of the list
+# insert() - Adds an element at the specified position
+# extend() - Add the elements of a list (or any iterable), to the end of the current list
+# remove() - Removes the first item with the specified value
+# pop() - Removes the element at the specified position
+# clear() - Removes all the elements from the list
+# sort() - Sorts the list
+# reverse() - Reverses the order of the list
+# copy() - Returns a copy of the list
+# count() - Returns the number of elements with the specified value
+# del - Deletes the list
+
+
 # Lists are mutable
 print("Sorting a list in ascending order:")
 colors = ["voilet", "indigo", "blue", "green"]
